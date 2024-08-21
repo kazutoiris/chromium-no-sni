@@ -1,3 +1,12 @@
+# Chromium without SNI
+
+Removed SNI to test server handshake behavior without SNI support.
+
+> [!CAUTION]
+> You may be unable to complete the TLS handshake when the server uses SNI to select the SSL certificate!
+
+----
+
 # ungoogled-chromium-windows
 
 Windows packaging for [ungoogled-chromium](//github.com/Eloston/ungoogled-chromium).
