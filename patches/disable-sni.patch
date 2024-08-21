@@ -1,0 +1,13 @@
+# Disable SNI
+
+--- a/third_party/boringssl/src/ssl/extensions.cc
++++ b/third_party/boringssl/src/ssl/extensions.cc
+@@ -466,6 +466,7 @@ static bool ext_sni_add_clienthello(const SSL_HANDSHAKE *hs, CBB *out,
+   if (type == ssl_client_hello_outer) {
+     hostname = hs->selected_ech_config->public_name;
+   } else {
++    return true;
+     if (ssl->hostname == nullptr) {
+       return true;
+     }
+-- 
