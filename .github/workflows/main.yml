@@ -1,5 +1,5 @@
 name: CI
-on:  
+on:
   push:
     tags:
       - '*'
@@ -695,6 +695,10 @@ jobs:
   publish-release:
     needs: [build-16, build-x86-16]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
     steps:
       - name: Download package
         uses: actions/download-artifact@v3
@@ -710,6 +714,12 @@ jobs:
         with:
           fail_on_unmatched_files: true
           files: |
+            ungoogled-chromium*
+      - name: Attest Release Files
+        id: attest
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: |
             ungoogled-chromium*
     outputs:
       assets: ${{ steps.publish.outputs.assets }}
