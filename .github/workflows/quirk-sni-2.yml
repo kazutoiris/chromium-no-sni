@@ -1,8 +1,8 @@
-name: CI
-on:  
+name: quirk-sni-2
+on:
   push:
     tags:
-      - '*'
+      - "*"
 jobs:
   build-1:
     runs-on: windows-2022
@@ -10,11 +10,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
+      - name: Inject extra patches
+        run: |
+          "./extra/${{ github.workflow }}.patch" | Out-File -FilePath ./patches/series -Append
+          (Get-Content -Path "./patches/extra/first-run-page.patch" -Raw) -replace "BUILD_CONFIGURATION", "${{ github.workflow }}" | Set-Content -Path "./patches/extra/first-run-page.patch"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -35,11 +39,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -60,11 +64,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -85,11 +89,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -110,11 +114,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -135,11 +139,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -160,11 +164,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -185,11 +189,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -210,11 +214,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -235,11 +239,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -260,11 +264,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -285,11 +289,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -310,11 +314,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -335,11 +339,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -360,11 +364,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -385,11 +389,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -410,11 +414,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
+      - name: Inject extra patches
+        run: |
+          "./extra/${{ github.workflow }}.patch" | Out-File -FilePath ./patches/series -Append
+          (Get-Content -Path "./patches/extra/first-run-page.patch" -Raw) -replace "BUILD_CONFIGURATION", "${{ github.workflow }}" | Set-Content -Path "./patches/extra/first-run-page.patch"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -436,11 +444,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -462,11 +470,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -488,11 +496,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -514,11 +522,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -540,11 +548,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -566,11 +574,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -592,11 +600,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -618,11 +626,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -644,11 +652,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -670,11 +678,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -696,11 +704,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -722,11 +730,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -748,11 +756,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -774,11 +782,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -800,11 +808,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -826,11 +834,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
+      - name: Inject extra patches
+        run: |
+          "./extra/${{ github.workflow }}.patch" | Out-File -FilePath ./patches/series -Append
+          (Get-Content -Path "./patches/extra/first-run-page.patch" -Raw) -replace "BUILD_CONFIGURATION", "${{ github.workflow }}" | Set-Content -Path "./patches/extra/first-run-page.patch"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -852,11 +864,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -878,11 +890,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -904,11 +916,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -930,11 +942,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -956,11 +968,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -982,11 +994,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1008,11 +1020,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1034,11 +1046,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1060,11 +1072,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1086,11 +1098,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1112,11 +1124,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1138,11 +1150,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1164,11 +1176,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1190,11 +1202,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1216,11 +1228,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
       - name: Init
         run: Copy-Item -Path . -Destination "C:\ungoogled-chromium-windows" -Recurse
       - name: Setup Stage
@@ -1239,6 +1251,10 @@ jobs:
   publish-release:
     needs: [build-16, build-x86-16, build-arm-16]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
     steps:
       - name: Download package
         uses: actions/download-artifact@v4
@@ -1252,28 +1268,20 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: chromium-arm
+      - name: Attest Release Files
+        id: attest
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: |
+            ungoogled-chromium*
       - name: Publish release
         id: publish
         uses: softprops/action-gh-release@v1
         with:
           fail_on_unmatched_files: true
+          tag_name: ${{ github.ref_name }}-${{ github.workflow }}
+          generate_release_notes: true
           files: |
             ungoogled-chromium*
     outputs:
       assets: ${{ steps.publish.outputs.assets }}
-  publish-winget:
-    needs: publish-release
-    runs-on: windows-2022
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Stage
-        run: npm install
-        working-directory: ./.github/actions/winget
-      - name: Run Stage
-        id: stage
-        uses: ./.github/actions/winget
-        with:
-          token: ${{ secrets.PAT }}
-          version: ${{ github.ref_name }}
-          assets: ${{ needs.publish-release.outputs.assets }}
