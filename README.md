@@ -1,3 +1,28 @@
+# Chromium without SNI
+
+[![no-sni](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/no-sni.yml/badge.svg)](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/no-sni.yml)
+[![quirk-sni-1](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-1.yml/badge.svg)](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-1.yml)
+[![quirk-sni-2](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-2.yml/badge.svg)](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-2.yml)
+[![quirk-sni-3](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-3.yml/badge.svg)](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-3.yml)
+[![quirk-sni-4](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-4.yml/badge.svg)](https://github.com/kazutoiris/chromium-no-sni/actions/workflows/quirk-sni-4.yml)
+
+
+[![Total Downloads](https://img.shields.io/github/downloads/kazutoiris/chromium-no-sni/total?color=blue)](https://github.com/kazutoiris/chromium-no-sni/releases)
+[![Release date](https://img.shields.io/github/release-date/kazutoiris/chromium-no-sni)](https://github.com/kazutoiris/chromium-no-sni/releases)
+
+Remove SNI to test server handshake behavior without SNI.
+
+> [!NOTE]
+> Two distinct variants of the modification are available:
+> * `-no-sni` version: Completely removes SNI field in TLS handshakes. Servers will not receive it.
+> * `-quirk-sni-x` version: Appends `x` bytes of additional data to the SNI value in TLS handshakes. Use this to test server behavior with malformed SNI fields.
+
+> [!CAUTION]
+> You may be unable to complete the TLS handshake when the server uses SNI to select the SSL certificate!
+
+
+----
+
 # ungoogled-chromium-windows
 
 Windows packaging for [ungoogled-chromium](//github.com/Eloston/ungoogled-chromium).
