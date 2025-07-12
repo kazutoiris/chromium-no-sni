@@ -1,0 +1,19 @@
+# Completely removes all outgoing SNI extensions in TLS handshakes.
+# Servers will not receive the SNI field.
+#
+# Copyright (C) 2025 Kazutoiris
+# This file is licensed under the Anti 996 License.
+# You may not use this file except in compliance with the License.
+# It can be found in the LICENSE file.
+
+--- a/third_party/boringssl/src/ssl/extensions.cc
++++ b/third_party/boringssl/src/ssl/extensions.cc
+@@ -510,6 +510,7 @@ static bool ext_sni_add_clienthello(const SSL_HANDSHAKE *hs, CBB *out,
+   if (type == ssl_client_hello_outer) {
+     hostname = hs->selected_ech_config->public_name;
+   } else {
++    return true;
+     if (ssl->hostname == nullptr) {
+       return true;
+     }
+--

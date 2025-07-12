@@ -1,0 +1,21 @@
+# Appends additional data to the SNI value in TLS handshakes.
+# Use this to test server behavior with malformed SNI fields.
+#
+# Copyright (C) 2025 Kazutoiris
+# This file is licensed under the Anti 996 License.
+# You may not use this file except in compliance with the License.
+# It can be found in the LICENSE file.
+
+--- a/third_party/boringssl/src/ssl/extensions.cc
++++ b/third_party/boringssl/src/ssl/extensions.cc
+@@ -523,6 +523,9 @@ static bool ext_sni_add_clienthello(const SSL_HANDSHAKE *hs, CBB *out,
+       !CBB_add_u8(&server_name_list, TLSEXT_NAMETYPE_host_name) ||
+       !CBB_add_u16_length_prefixed(&server_name_list, &name) ||
+       !CBB_add_bytes(&name, hostname.data(), hostname.size()) ||
++      (type == ssl_client_hello_outer ? false : !CBB_add_u8(&name, 0x2e)) ||
++      (type == ssl_client_hello_outer ? false : !CBB_add_u8(&name, 0x2e)) ||
++      (type == ssl_client_hello_outer ? false : !CBB_add_u8(&name, 0x2e)) ||
+       !CBB_flush(out)) {
+     return false;
+   }
+--
